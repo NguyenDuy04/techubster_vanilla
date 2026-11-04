@@ -38,28 +38,28 @@ techubster_vanilla/
     │   │   └── main.css # File tổng gộp toàn bộ các file CSS trên (Import)
     │   │
     │   └── js/ # Kiến trúc JS dạng ES6 Modules (`type="module"`)
-    │   ├── config/ # Cấu hình chung cho ứng dụng
-    │   │   ├── constants.js # Lưu URL API, App Key, mã lỗi
-    │   │   └── routes.js # Đường dẫn ứng dụng
-    │   ├── core/ # Các thư viện tự viết hoặc helper cấp thấp
-    │   │   ├── api.js # Wrapper fetch/axios gọi API tập trung
-    │   │   ├── storage.js # Utility thao tác với LocalStorage/Cookie
-    │   │   └── router.js # (Nếu có) Client-side router đơn giản
-    │   ├── utils/ # Các hàm bổ trợ xử lý dữ liệu thuần
-    │   │   ├── formatters.js # Format tiền tệ, ngày tháng, chuỗi
-    │   │   └── validators.js # Validate dữ liệu form (Email, phone, password)
-    │   ├── components/ # Logic UI cho các thành phần dùng lại
-    │   │   ├── modal.js
-    │   │   ├── toast.js
-    │   │   └── navbar.js
-    │   ├── modules/ # Business Logic phân theo tính năng chính
-    │   │ ├── auth/ # Xử lý Đăng nhập / Đăng ký
-    │   │ │     ├── auth.service.js
-    │   │ │     └── auth.ui.js
-    │   │ └── products/ # Xử lý danh sách / chi tiết sản phẩm
-    │   │       ├── product.service.js
-    │   │       └── product.ui.js
-    │   └── app.js # Entry point chính của JavaScript
+    │       ├── config/ # Cấu hình chung cho ứng dụng
+    │       │   ├── constants.js # Lưu URL API, App Key, mã lỗi
+    │       │   └── routes.js # Đường dẫn ứng dụng
+    │       ├── core/ # Các thư viện tự viết hoặc helper cấp thấp
+    │       │   ├── api.js # Wrapper fetch/axios gọi API tập trung
+    │       │   ├── storage.js # Utility thao tác với LocalStorage/Cookie
+    │       │   └── router.js # (Nếu có) Client-side router đơn giản
+    │       ├── utils/ # Các hàm bổ trợ xử lý dữ liệu thuần
+    │       │   ├── formatters.js # Format tiền tệ, ngày tháng, chuỗi
+    │       │   └── validators.js # Validate dữ liệu form (Email, phone, password)
+    │       ├── components/ # Logic UI cho các thành phần dùng lại
+    │       │   ├── modal.js
+    │       │   ├── toast.js
+    │       │   └── navbar.js
+    │       ├── modules/ # Business Logic phân theo tính năng chính
+    │       │   ├── auth/ # Xử lý Đăng nhập / Đăng ký
+    │       │   │     ├── auth.service.js
+    │       │   │     └── auth.ui.js
+    │       │   └── products/ # Xử lý danh sách / chi tiết sản phẩm
+    │       │         ├── product.service.js
+    │       │         └── product.ui.js
+    │       └── app.js # Entry point chính của JavaScript
     │
     ├── .gitignore # Bỏ qua các tệp không cần đẩy lên Git
     └── README.md # Hướng dẫn chạy và giải thích project

@@ -1,3 +1,108 @@
+const pageTitleTranslations = {
+  en: {
+    pageTitleStoreLocation: "Store Location - Techubster",
+    pageTitleTrackOrder: "Track Order - Techubster",
+    pageTitleHelp: "Help - Techubster",
+  },
+  vi: {
+    pageTitleStoreLocation: "Địa điểm cửa hàng - Techubster",
+    pageTitleTrackOrder: "Theo dõi đơn hàng - Techubster",
+    pageTitleHelp: "Trợ giúp - Techubster",
+  },
+};
+
+function updatePageTitle(language) {
+  const titleKey =
+    document.querySelector("[data-i18n-title]")?.dataset.i18nTitle;
+  const translatedTitle = pageTitleTranslations[language]?.[titleKey];
+
+  if (translatedTitle) {
+    document.title = translatedTitle;
+  }
+}
+
+function closeDetailsOnOutsideClick(selectors) {
+  const dropdownSelector = selectors.join(", ");
+
+  document.addEventListener("click", (event) => {
+    document.querySelectorAll("details[open]").forEach((dropdown) => {
+      if (
+        dropdown.matches(dropdownSelector) &&
+        !dropdown.contains(event.target)
+      ) {
+        dropdown.open = false;
+      }
+    });
+  });
+}
+
+closeDetailsOnOutsideClick([".topnav-switcher", ".site-header__categories"]);
+
+document.addEventListener("techubster:languagechange", (event) => {
+  updatePageTitle(event.detail.language);
+});
+
+const initialLanguage = localStorage.getItem("techubster.language");
+updatePageTitle(
+  Object.hasOwn(pageTitleTranslations, initialLanguage)
+    ? initialLanguage
+    : "en",
+);
+
+class SiteHeader extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+      <header class="header">
+        <div class="header__content">
+          <a class="header__brand" href="/" aria-label="Techubster home">
+            <img src="/assets/images/logo/techubster__logo-removebg-preview%20%282%29.png" alt="">
+            <span>Techubster</span>
+          </a>
+
+          <details class="header__categories">
+            <summary>
+              <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+              <span>Category</span>
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </summary>
+            <div class="header__category-menu">
+              <button type="button">New arrivals</button>
+              <button type="button">Clothing</button>
+              <button type="button">Accessories</button>
+            </div>
+          </details>
+
+          <div class="header__search" role="search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input type="search" aria-label="Search products" placeholder="Search products...">
+            <button type="button" aria-label="Search">
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="header__actions">
+            <button class="header__notification" type="button" aria-label="Notifications">
+              <i class="fa-regular fa-bell" aria-hidden="true"></i>
+              <span aria-hidden="true"></span>
+            </button>
+            <button class="header__utility" type="button" aria-label="Wishlist">
+              <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            </button>
+            <button class="header__utility" type="button" aria-label="Cart">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </button>
+            <button class="header__avatar" type="button" aria-label="Your profile">
+              <img src="/assets/images/logo/avatars.jpg" alt="">
+            </button>
+          </div>
+        </div>
+      </header>
+    `;
+  }
+}
+
+customElements.define("site-header", SiteHeader);
+
 class SiteTopNav extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -79,5 +184,4 @@ class SiteTopNav extends HTMLElement {
   }
 }
 
-// Đăng ký thẻ tùy chỉnh <site-header>
 customElements.define("site-topnav", SiteTopNav);

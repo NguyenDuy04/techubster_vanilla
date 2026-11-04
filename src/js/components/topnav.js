@@ -25,6 +25,9 @@ const currencyControl = document.querySelector("[data-current-currency]");
 
 function setLanguage(language) {
   document.documentElement.lang = language;
+  document.dispatchEvent(
+    new CustomEvent("techubster:languagechange", { detail: { language } }),
+  );
   languageControl.textContent = language.toUpperCase();
   languageControl
     .closest("summary")
@@ -65,14 +68,6 @@ const savedCurrency = localStorage.getItem("techubster.currency");
 
 setLanguage(Object.hasOwn(translations, savedLanguage) ? savedLanguage : "en");
 setCurrency(currencies.includes(savedCurrency) ? savedCurrency : "VND");
-
-document.addEventListener("click", (event) => {
-  document.querySelectorAll(".topnav-switcher[open]").forEach((switcher) => {
-    if (!switcher.contains(event.target)) {
-      switcher.open = false;
-    }
-  });
-});
 
 document.addEventListener("click", (event) => {
   const option = event.target.closest(

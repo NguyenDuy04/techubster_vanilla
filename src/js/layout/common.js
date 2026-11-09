@@ -36,7 +36,7 @@ function closeDetailsOnOutsideClick(selectors) {
   });
 }
 
-closeDetailsOnOutsideClick([".topnav-switcher", ".site-header__categories"]);
+closeDetailsOnOutsideClick([".topnav-switcher", ".header__categories"]);
 
 document.addEventListener("techubster:languagechange", (event) => {
   updatePageTitle(event.detail.language);
@@ -83,7 +83,6 @@ class SiteHeader extends HTMLElement {
           <div class="header__actions">
             <button class="header__notification" type="button" aria-label="Notifications">
               <i class="fa-regular fa-bell" aria-hidden="true"></i>
-              <span aria-hidden="true"></span>
             </button>
             <button class="header__utility" type="button" aria-label="Wishlist">
               <i class="fa-regular fa-heart" aria-hidden="true"></i>

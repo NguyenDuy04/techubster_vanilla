@@ -49,6 +49,387 @@ updatePageTitle(
     : "en",
 );
 
+const headerCategories = [
+  {
+    name: "Điện thoại, Tablet",
+    icon: "fa-mobile-screen-button",
+    groups: [
+      {
+        title: "Thương hiệu",
+        items: [
+          "iPhone",
+          "Samsung",
+          "Xiaomi",
+          "OPPO",
+          "vivo",
+          "realme",
+          "Google Pixel",
+        ],
+      },
+      {
+        title: "Điện thoại",
+        items: [
+          "Điện thoại cao cấp",
+          "Điện thoại Android",
+          "Điện thoại màn hình gập",
+          "Điện thoại gaming",
+        ],
+      },
+      {
+        title: "Máy tính bảng",
+        items: ["iPad", "Samsung Galaxy Tab", "Xiaomi Pad", "Máy tính bảng Android"],
+      },
+    ],
+  },
+  {
+    name: "Laptop",
+    icon: "fa-laptop",
+    groups: [
+      {
+        title: "Thương hiệu",
+        items: [
+          "MacBook",
+          "Laptop ASUS",
+          "Laptop Acer",
+          "Laptop Dell",
+          "Laptop HP",
+          "Laptop Lenovo",
+          "Laptop MSI",
+          "Laptop Microsoft Surface",
+        ],
+      },
+      {
+        title: "Nhu cầu",
+        items: [
+          "Laptop văn phòng",
+          "Laptop gaming",
+          "Laptop đồ họa",
+          "Laptop học tập",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Âm thanh, Mic thu âm",
+    icon: "fa-headphones",
+    groups: [
+      {
+        title: "Thiết bị âm thanh",
+        items: [
+          "Tai nghe Bluetooth",
+          "Tai nghe chụp tai",
+          "Loa Bluetooth",
+          "Loa karaoke",
+          "Soundbar",
+        ],
+      },
+      {
+        title: "Thương hiệu",
+        items: ["Sony", "JBL", "Bose", "Marshall", "Apple", "Samsung"],
+      },
+      {
+        title: "Thu âm, Mic",
+        items: ["Micro không dây", "Micro thu âm", "Micro cài áo", "Audio interface"],
+      },
+    ],
+  },
+  {
+    name: "Đồng hồ, Camera",
+    icon: "fa-clock",
+    groups: [
+      {
+        title: "Đồng hồ",
+        items: [
+          "Apple Watch",
+          "Samsung Galaxy Watch",
+          "Đồng hồ Garmin",
+          "Đồng hồ thông minh",
+        ],
+      },
+      {
+        title: "Camera",
+        items: [
+          "Camera an ninh",
+          "Camera hành trình",
+          "Camera kỹ thuật số",
+          "Camera gia đình",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Đồ gia dụng, Làm đẹp",
+    icon: "fa-house",
+    groups: [
+      {
+        title: "Gia dụng",
+        items: [
+          "Robot hút bụi",
+          "Máy hút bụi",
+          "Máy lọc không khí",
+          "Máy lọc nước",
+          "Nồi chiên không dầu",
+          "Nồi cơm điện",
+        ],
+      },
+      {
+        title: "Chăm sóc cá nhân",
+        items: [
+          "Máy sấy tóc",
+          "Máy tạo kiểu tóc",
+          "Máy cạo râu",
+          "Bàn chải điện",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Phụ kiện",
+    icon: "fa-plug",
+    groups: [
+      {
+        title: "Phụ kiện điện thoại",
+        items: [
+          "Củ sạc, cáp sạc",
+          "Sạc dự phòng",
+          "Ốp lưng",
+          "Miếng dán màn hình",
+          "Giá đỡ điện thoại",
+          "Cáp chuyển đổi",
+        ],
+      },
+      {
+        title: "Phụ kiện khác",
+        items: [
+          "Phụ kiện Apple",
+          "Chuột, bàn phím",
+          "Webcam",
+          "Phụ kiện tiện ích",
+        ],
+      },
+    ],
+  },
+  {
+    name: "PC, Màn hình, Máy in",
+    icon: "fa-desktop",
+    groups: [
+      {
+        title: "Máy tính",
+        items: [
+          "PC gaming",
+          "PC văn phòng",
+          "PC đồ họa",
+          "Linh kiện máy tính",
+        ],
+      },
+      {
+        title: "Thiết bị",
+        items: [
+          "Màn hình gaming",
+          "Màn hình văn phòng",
+          "Máy in",
+          "Chuột, bàn phím",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Tivi, Điện máy",
+    icon: "fa-tv",
+    groups: [
+      {
+        title: "Tivi",
+        items: [
+          "Smart TV",
+          "Google TV",
+          "Tivi Samsung",
+          "Tivi Sony",
+          "Tivi Xiaomi",
+        ],
+      },
+      {
+        title: "Điện máy",
+        items: [
+          "Tủ lạnh",
+          "Máy giặt",
+          "Máy sấy quần áo",
+          "Điều hòa",
+          "Máy lọc không khí",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Thu cũ đổi mới",
+    icon: "fa-arrows-rotate",
+    groups: [
+      {
+        title: "Thu cũ lên đời",
+        items: ["Thu cũ điện thoại", "Thu cũ máy tính bảng", "Thu cũ laptop"],
+      },
+    ],
+  },
+  {
+    name: "Hàng cũ",
+    icon: "fa-box-open",
+    groups: [
+      {
+        title: "Sản phẩm đã qua sử dụng",
+        items: [
+          "Điện thoại cũ",
+          "Máy tính bảng cũ",
+          "Laptop cũ",
+          "Phụ kiện cũ",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Khuyến mãi",
+    icon: "fa-tags",
+    groups: [
+      {
+        title: "Ưu đãi nổi bật",
+        items: [
+          "Khuyến mãi điện thoại",
+          "Khuyến mãi laptop",
+          "Khuyến mãi phụ kiện",
+          "Sản phẩm giảm giá",
+        ],
+      },
+    ],
+  },
+  {
+    name: "Tin công nghệ",
+    icon: "fa-newspaper",
+    groups: [
+      {
+        title: "Khám phá",
+        items: [
+          "Tin công nghệ mới",
+          "Đánh giá sản phẩm",
+          "Tư vấn chọn mua",
+          "Thủ thuật",
+        ],
+      },
+    ],
+  },
+];
+
+const manufacturerLogos = {
+  iPhone: "/assets/icons/fontawesome/svgs-full/brands/apple.svg",
+  iPad: "/assets/icons/fontawesome/svgs-full/brands/apple.svg",
+  MacBook: "/assets/icons/fontawesome/svgs-full/brands/apple.svg",
+  Apple: "/assets/icons/fontawesome/svgs-full/brands/apple.svg",
+  "Google Pixel": "/assets/icons/fontawesome/svgs-full/brands/google.svg",
+  "Google TV": "/assets/icons/fontawesome/svgs-full/brands/google.svg",
+  "Laptop Microsoft Surface":
+    "/assets/icons/fontawesome/svgs-full/brands/microsoft.svg",
+};
+
+function renderCategoryLink(item) {
+  const logo = manufacturerLogos[item];
+
+  return `
+    <a href="/">
+      ${logo ? `<img class="header__manufacturer-logo" src="${logo}" alt="" aria-hidden="true">` : ""}
+      <span>${item}</span>
+    </a>
+  `;
+}
+
+function renderCategoryMenu() {
+  const categories = headerCategories
+    .map(
+      ({ name, icon }, index) => `
+        <div
+          class="header__category-row${index === 0 ? " is-active" : ""}"
+          data-category-index="${index}"
+          aria-expanded="${index === 0}"
+        >
+          <a
+            class="header__category-item"
+            id="header-category-${index}"
+            href="/"
+            aria-controls="header-category-panel-${index}"
+          >
+            <i class="fa-solid ${icon}" aria-hidden="true"></i>
+            <span>${name}</span>
+          </a>
+          <button
+            class="header__category-expand"
+            type="button"
+            aria-label="Xem danh mục ${name}"
+            aria-controls="header-category-panel-${index}"
+            aria-expanded="${index === 0}"
+          >
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      `,
+    )
+    .join("");
+
+  const panels = headerCategories
+    .map(
+      ({ name, groups }, index) => `
+        <section
+          class="header__category-panel"
+          id="header-category-panel-${index}"
+          aria-labelledby="header-category-${index}"
+          ${index === 0 ? "" : "hidden"}
+        >
+          <button class="header__category-back" type="button">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            <span>Tất cả danh mục</span>
+          </button>
+          <h2><a class="header__category-title-link" href="/">${name}</a></h2>
+          <div class="header__category-groups">
+            ${groups
+              .map(
+                ({ title, items }) => `
+                  <section class="header__category-group">
+                    <h3>${title}</h3>
+                    <div class="header__category-links">
+                      ${items.map(renderCategoryLink).join("")}
+                    </div>
+                  </section>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+      `,
+    )
+    .join("");
+
+  return `
+    <div class="header__category-menu">
+      <nav class="header__category-list" aria-label="Danh mục sản phẩm">
+        ${categories}
+      </nav>
+      <div class="header__category-submenu">
+        ${panels}
+      </div>
+    </div>
+  `;
+}
+
+function setActiveCategory(menu, categoryIndex) {
+  menu.querySelectorAll(".header__category-row").forEach((row) => {
+    const isActive = row.dataset.categoryIndex === categoryIndex;
+    row.classList.toggle("is-active", isActive);
+    row.setAttribute("aria-expanded", String(isActive));
+    row
+      .querySelector(".header__category-expand")
+      .setAttribute("aria-expanded", String(isActive));
+  });
+
+  menu.querySelectorAll(".header__category-panel").forEach((panel) => {
+    panel.hidden = panel.id !== `header-category-panel-${categoryIndex}`;
+  });
+}
+
 class SiteHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -60,16 +441,12 @@ class SiteHeader extends HTMLElement {
           </a>
 
           <details class="header__categories">
-            <summary>
-              <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-              <span>Category</span>
+            <summary class="header__categories-toggle">
+              <i class="fa-solid fa-table-cells-large" aria-hidden="true"></i>
+              <span>Danh mục</span>
               <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="header__category-menu">
-              <button type="button">New arrivals</button>
-              <button type="button">Clothing</button>
-              <button type="button">Accessories</button>
-            </div>
+            ${renderCategoryMenu()}
           </details>
 
           <div class="header__search" role="search">
@@ -97,6 +474,36 @@ class SiteHeader extends HTMLElement {
         </div>
       </header>
     `;
+
+    const categoryMenu = this.querySelector(".header__category-menu");
+    categoryMenu.addEventListener("pointerover", (event) => {
+      const item = event.target.closest("[data-category-index]");
+      if (item) {
+        setActiveCategory(categoryMenu, item.dataset.categoryIndex);
+      }
+    });
+    categoryMenu.addEventListener("focusin", (event) => {
+      const item = event.target.closest("[data-category-index]");
+      if (item) {
+        setActiveCategory(categoryMenu, item.dataset.categoryIndex);
+      }
+    });
+    categoryMenu.addEventListener("click", (event) => {
+      const backButton = event.target.closest(".header__category-back");
+      if (backButton) {
+        categoryMenu.classList.remove("is-submenu-open");
+        categoryMenu.querySelector(".header__category-item")?.focus();
+        return;
+      }
+
+      const item = event.target.closest("[data-category-index]");
+      if (item) {
+        setActiveCategory(categoryMenu, item.dataset.categoryIndex);
+        if (window.matchMedia("(max-width: 760px)").matches) {
+          categoryMenu.classList.add("is-submenu-open");
+        }
+      }
+    });
   }
 }
 

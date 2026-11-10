@@ -164,6 +164,7 @@
   padding: 2px;
   border-radius: 10px;
   border: 1px solid #ccc;
+  background-color: #fff;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-20px);
